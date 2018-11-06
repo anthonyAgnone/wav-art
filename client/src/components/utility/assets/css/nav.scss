@@ -1,0 +1,23 @@
+nav {
+	width: 100vw;
+	position: fixed;
+	top: 0;
+	left: 0;
+	ul {
+		width: 50vw;
+		height: 10vh;
+		list-style-type: none;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin: 0 auto;
+		li {
+			width: 20%;
+			height: 80%;
+			a {
+				text-decoration: none;
+				color: rgb(119, 16, 16);
+			}
+		}
+	}
+}

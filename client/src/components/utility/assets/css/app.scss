@@ -1,0 +1,14 @@
+.app {
+	& > h1 {
+		font-size: 2.6em;
+		color: rgb(17, 17, 104);
+	}
+	//Temporary
+	& > div {
+		width: 60vw;
+		margin: 20vh auto 0 auto;
+		& p {
+			margin-left: 2em;
+		}
+	}
+}

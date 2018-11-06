@@ -1,0 +1,9 @@
+.app > h1 {
+  font-size: 2.6em;
+  color: #111168; }
+
+.app > div {
+  width: 60vw;
+  margin: 20vh auto 0 auto; }
+  .app > div p {
+    margin-left: 2em; }

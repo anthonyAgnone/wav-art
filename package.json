@@ -1,0 +1,19 @@
+{
+  "name": "wav-art",
+  "version": "1.0.0",
+  "description": "Marrying the visual and the audio",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anthonyAgnone/wav-art.git"
+  },
+  "author": "Anthony Agnone && Time Grey",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/anthonyAgnone/wav-art/issues"
+  },
+  "homepage": "https://github.com/anthonyAgnone/wav-art#readme"
+}
