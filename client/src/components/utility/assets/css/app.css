@@ -1,9 +1,12 @@
-.app > h1 {
-  font-size: 2.6em;
-  color: #111168; }
-
-.app > div {
-  width: 60vw;
-  margin: 20vh auto 0 auto; }
-  .app > div p {
-    margin-left: 2em; }
+.app {
+  width: 100vw;
+  height: 100vh;
+  background-color: #000; }
+  .app .content {
+    width: 90vw;
+    height: 80vh;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border: 10px solid #5fc9f0; }

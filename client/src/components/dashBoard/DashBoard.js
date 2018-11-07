@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-export default function DashBoard() {
-	return (
-		<div>
-			<h2>Dashboard</h2>
-			<p>I am a private route</p>
-		</div>
-	);
+import './assets/css/dashboard.css';
+
+export default class DashBoard extends Component {
+	componentDidMount() {}
+	render() {
+		return (
+			<div>
+				<canvas height={window.innerHeight - 20} width={window.innerWidth - 20} id="canvas" />
+			</div>
+		);
+	}
 }

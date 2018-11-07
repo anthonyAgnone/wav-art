@@ -1,0 +1,21 @@
+.landingPage {
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center; }
+  .landingPage .lpContent {
+    width: 50%;
+    height: 100%;
+    background-color: #5fc9f0;
+    color: #ffdff0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; }
+    .landingPage .lpContent h1 {
+      font-size: 3.67em; }
+    .landingPage .lpContent p {
+      max-width: 50%;
+      text-align: center;
+      font-size: 1.3em; }

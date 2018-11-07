@@ -1,0 +1,39 @@
+.header {
+  width: 100vw;
+  height: 10vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 3000;
+  background-color: #000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+  .header form {
+    display: flex;
+    justify-content: space-between;
+    width: 20vw;
+    padding: 1em; }
+    .header form input {
+      width: 60%; }
+    .header form button {
+      width: 30%; }
+  .header .buttons {
+    width: 20vw;
+    display: flex;
+    justify-content: flex-end;
+    padding: 1em; }
+    .header .buttons button {
+      margin-left: 1em; }
+  .header .topNav {
+    width: 40vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto; }
+    .header .topNav h1 {
+      font-size: 2.6em;
+      color: #fff;
+      margin: 0 2em; }
+    .header .topNav a {
+      color: #fff; }

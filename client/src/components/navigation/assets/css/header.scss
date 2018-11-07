@@ -1,0 +1,48 @@
+.header {
+	width: 100vw;
+	height: 10vh;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 3000;
+	background-color: #000;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	form {
+		display: flex;
+		justify-content: space-between;
+		width: 20vw;
+		padding: 1em;
+		input {
+			width: 60%;
+		}
+		button {
+			width: 30%;
+		}
+	}
+	.buttons {
+		width: 20vw;
+		display: flex;
+		justify-content: flex-end;
+		padding: 1em;
+		button {
+			margin-left: 1em;
+		}
+	}
+	.topNav {
+		width: 40vw;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin: 0 auto;
+		h1 {
+			font-size: 2.6em;
+			color: #fff;
+			margin: 0 2em;
+		}
+		a {
+			color: #fff;
+		}
+	}
+}
