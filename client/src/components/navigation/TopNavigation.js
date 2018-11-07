@@ -9,7 +9,9 @@ function TopNavigation({ handleChangeSideNav, handleChangeTopNav }) {
 				Home
 			</Link>
 			<div className="brand">
-				<h1>Wave.Art</h1>
+				<h1>
+					<span>Wav</span> Art
+				</h1>
 			</div>
 			<Link onClick={handleChangeTopNav} to="/how-to-use">
 				How To Use

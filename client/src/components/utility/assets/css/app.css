@@ -1,12 +1,13 @@
 .app {
   width: 100vw;
   height: 100vh;
-  background-color: #000; }
+  background-color: #5fc9f0; }
   .app .content {
-    width: 90vw;
-    height: 80vh;
+    box-sizing: border-box;
+    width: 100vw;
+    height: 100vh;
+    border: 5vw solid #252525;
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%);
-    border: 10px solid #5fc9f0; }
+    transform: translate(-50%, -50%); }

@@ -13,7 +13,7 @@ export default function Header() {
 			<Navigation />
 			<div className="buttons">
 				<button>Login</button>
-				<button>Register</button>
+				<button className="register">Register</button>
 			</div>
 		</div>
 	);
