@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css?family=Changa+One");
+.howToPage {
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  position: absolute;
+  top: 0;
+  left: 0; }
+  .howToPage .htContent {
+    width: 50%;
+    height: 100%;
+    background-color: #d8f4f8;
+    color: #07b6e7;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(100%); }
+    .howToPage .htContent h1 {
+      font-family: 'Changa One', cursive;
+      font-size: 4.67em;
+      text-align: left;
+      max-width: 80%;
+      padding: 0 10%; }
+    .howToPage .htContent p {
+      max-width: 80%;
+      text-align: left;
+      padding: 0 10%;
+      font-size: 1.5em;
+      color: #374952;
+      font-weight: 500; }
+
+@keyframes backForth {
+  0% {
+    transform: translateX(0%); }
+  100% {
+    transform: translateX(100%); } }

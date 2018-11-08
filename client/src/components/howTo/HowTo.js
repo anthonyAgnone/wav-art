@@ -1,10 +1,19 @@
 import React from 'react';
+import './assets/css/howTo.css';
+import background from './assets/img/background.jpeg';
 
 export default function HowTo() {
+	const style = {
+		landing: {
+			backgroundImage: `url(${background})`
+		}
+	};
 	return (
-		<div>
-			<h2>How to use the site</h2>
-			<p>I am a public route</p>
+		<div className="howToPage" style={style.landing}>
+			<div className="htContent">
+				<h1>How To Use</h1>
+				<p>how to use the app</p>
+			</div>
 		</div>
 	);
 }

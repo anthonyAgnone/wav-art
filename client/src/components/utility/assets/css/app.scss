@@ -1,14 +1,42 @@
 .app {
-	& > h1 {
-		font-size: 2.6em;
-		color: rgb(17, 17, 104);
+	width: 100vw;
+	height: 100vh;
+	background-color: #5fc9f0;
+	.content {
+		box-sizing: border-box;
+		width: 100vw;
+		height: 100vh;
+		border: 5vw solid #252525;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
 	}
-	//Temporary
-	& > div {
-		width: 60vw;
-		margin: 20vh auto 0 auto;
-		& p {
-			margin-left: 2em;
-		}
-	}
+}
+
+.page-slide-enter > .htContent {
+	opacity: 0;
+}
+
+.page-slide-enter.page-slide-enter-active > .htContent {
+	opacity: 0;
+	transition: all 0.3s linear;
+}
+
+.page-slide-exit .lpContent {
+	transform: translateX(0);
+}
+
+.page-slide-exit.page-slide-exit-active .lpContent {
+	transform: translateX(100%);
+	transition: all 0.3s ease-in-out;
+}
+
+.page-slide-exit .htContent {
+	transform: translateX(100%);
+}
+
+.page-slide-exit.page-slide-exit-active .htContent {
+	transform: translateX(0%);
+	transition: all 0.3s ease-in-out;
 }
