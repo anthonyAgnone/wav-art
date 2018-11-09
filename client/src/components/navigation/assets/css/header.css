@@ -32,7 +32,7 @@
     width: 20vw;
     display: flex;
     justify-content: flex-end; }
-    .header .buttons button {
+    .header .buttons a {
       color: #2d3047;
       margin-left: 1em;
       border: none;
@@ -43,7 +43,8 @@
       background-color: #07b6e7;
       color: #fff;
       font-weight: 700;
-      letter-spacing: 0.05em; }
+      letter-spacing: 0.05em;
+      border: none; }
   .header .topNav {
     width: 40vw;
     display: flex;
@@ -59,8 +60,12 @@
         background: #07b6e7;
         color: #f8f7f2;
         padding: 0 0.3em; }
-    .header .topNav a {
+    .header .topNav a,
+    .header .topNav button {
       color: #f8f7f2;
       font-size: 1.2em;
       font-weight: 700;
-      margin: 0 1em; }
+      margin: 0 1em;
+      background-color: transparent;
+      border: none;
+      cursor: pointer; }
