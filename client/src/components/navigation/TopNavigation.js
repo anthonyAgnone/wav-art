@@ -1,23 +1,34 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { withNavContext } from '../contexts/NavContext';
 
-function TopNavigation({ handleChangeSideNav, handleChangeTopNav }) {
+import { Link, withRouter } from 'react-router-dom';
+
+function CustomLink({ to, from, children, ...props }) {
+	const disable = to === from;
+	return disable ? (
+		<button {...props}>{children}</button>
+	) : (
+		<Link to={to} {...props}>
+			{children}
+		</Link>
+	);
+}
+
+function TopNavigation({ location: { pathname } }) {
 	return (
 		<nav className="topNav">
-			<Link onClick={handleChangeTopNav} to="/">
+			<CustomLink id="homeLink" to="/" from={pathname}>
 				Home
-			</Link>
+			</CustomLink>
 			<div className="brand">
 				<h1>
 					<span>Wav</span> Art
 				</h1>
 			</div>
-			<Link onClick={handleChangeTopNav} to="/how-to-use">
+			<CustomLink id="howToLink" to="/how-to-use" from={pathname}>
 				How To Use
-			</Link>
+			</CustomLink>
 		</nav>
 	);
 }
 
-export default withNavContext(TopNavigation);
+export default withRouter(TopNavigation);

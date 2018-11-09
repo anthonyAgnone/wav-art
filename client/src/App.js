@@ -7,7 +7,6 @@ import DashBoard from './components/dashBoard/DashBoard';
 import HowTo from './components/howTo/HowTo';
 import PrintView from './components/printView/PrintView';
 import Login from './components/auth/Login';
-import Register from './components/auth/Register';
 
 import './components/utility/assets/css/app.css';
 
@@ -27,10 +26,9 @@ function App({ location }) {
 						<Switch location={location}>
 							<Route path="/" exact component={LandingPage} />
 							<Route path="/how-to-use" component={HowTo} />
+							<Route path="/login" component={Login} />
 							<Route path="/dashboard" component={DashBoard} />
 							<Route path="/preview" component={PrintView} />
-							<Route path="/login" component={Login} />
-							<Route path="/register" component={Register} />
 						</Switch>
 					</CSSTransition>
 				</TransitionGroup>

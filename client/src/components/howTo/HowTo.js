@@ -2,6 +2,8 @@ import React from 'react';
 import './assets/css/howTo.css';
 import background from './assets/img/background.jpeg';
 
+import BoxSlider from '../utility/BoxSlider';
+
 export default function HowTo() {
 	const style = {
 		landing: {
@@ -10,10 +12,10 @@ export default function HowTo() {
 	};
 	return (
 		<div className="howToPage" style={style.landing}>
-			<div className="htContent">
+			<BoxSlider className="htContent">
 				<h1>How To Use</h1>
 				<p>how to use the app</p>
-			</div>
+			</BoxSlider>
 		</div>
 	);
 }
