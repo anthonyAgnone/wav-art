@@ -1,0 +1,44 @@
+.content {
+  box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
+  border: 5vw solid #252525;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  overflow: hidden; }
+  .content .howToPage,
+  .content .landingPage,
+  .content .loginPage,
+  .content .registerPage {
+    height: 100%;
+    width: 100%; }
+  .content .boxSlider {
+    width: 50%;
+    height: 100%;
+    background-color: #d8f4f8;
+    color: #07b6e7;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0; }
+    .content .boxSlider h1 {
+      font-family: 'Changa One', cursive;
+      font-size: 4.67em;
+      text-align: left;
+      max-width: 80%;
+      padding: 0 10%; }
+    .content .boxSlider p {
+      max-width: 80%;
+      text-align: left;
+      padding: 0 10%;
+      font-size: 1.5em;
+      color: #374952;
+      font-weight: 500; }

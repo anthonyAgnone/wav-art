@@ -1,21 +1,22 @@
-import React from 'react';
-import './assets/css/howTo.css';
-import background from './assets/img/background.jpeg';
+import React from 'react'
 
-import BoxSlider from '../utility/BoxSlider';
+import BoxSlider from '../utility/BoxSlider'
+import { withNavContext } from '../contexts/NavContext'
 
-export default function HowTo() {
-	const style = {
-		landing: {
-			backgroundImage: `url(${background})`
-		}
-	};
-	return (
-		<div className="howToPage" style={style.landing}>
-			<BoxSlider className="htContent">
-				<h1>How To Use</h1>
-				<p>how to use the app</p>
-			</BoxSlider>
-		</div>
-	);
+function HowTo({ isLeft }) {
+  const boxStyle = {
+    box: {
+      transform: isLeft ? 'translateX(0)' : 'translateX(100%)'
+    }
+  }
+  return (
+    <div className="howToPage">
+      <BoxSlider className="boxSlider htContent" style={boxStyle}>
+        <h1>How to Use</h1>
+        <p>this is the how to use page</p>
+      </BoxSlider>
+    </div>
+  )
 }
+
+export default withNavContext(HowTo)
