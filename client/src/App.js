@@ -14,6 +14,7 @@ function App({ location }) {
 	return (
 		<div className="app">
 			<Header />
+			//change names based on isLeft
 			<div className="content">
 				<TransitionGroup component={null}>
 					<CSSTransition
