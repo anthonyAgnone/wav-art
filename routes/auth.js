@@ -3,14 +3,14 @@ const User = require("../models/user");
 const authRouter = express.Router();
 const jwt = require("jsonwebtoken");
 
-authRouter.post("/signup", (req, res, next) => {
+authRouter.post("/register", (req, res, next) => {
     User.findOne({ email: req.body.email }, (err, existingUser) => {
         if (err) {
             res.status(500);
             return next(err);
         } else if (existingUser !== null) {
             res.status(400);
-            return next(new Error("That email already exists!"));
+            return next(new Error("That email is already being used!"));
         }
         const newUser = new User(req.body);
         newUser.save((err, user) => {
