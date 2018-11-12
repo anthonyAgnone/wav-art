@@ -4,7 +4,6 @@ import BoxSlider from '../utility/BoxSlider'
 import { withNavContext } from '../contexts/NavContext'
 import { withAuthContext } from '../contexts/AuthContext'
 
-
 class Register extends Component {
   constructor() {
     super();
@@ -48,9 +47,6 @@ class Register extends Component {
   render() {
     const { isLeft } = this.props
     const boxStyle = {
-      box: {
-        transform: isLeft ? 'translateX(100%)' : 'translateX(0)'
-      },
       form: {
         transform: isLeft ? 'translateX(0)' : 'translateX(100%)',
         width: '50%',
@@ -68,20 +64,22 @@ class Register extends Component {
     }
     return (
       <div className="registerPage">
-        
-        <BoxSlider className="boxSlider regContent" style={boxStyle}>
+
+        <BoxSlider className={isLeft ? 'boxSlider registerContentLeft' : 'boxSlider registerContentRight'}>
           <h1>Register</h1>
           <p>Get started making amazing art from the sounds important to you</p>
-        </BoxSlider>import Register from './Register';
+        </BoxSlider>
 
         <form style={boxStyle.form} onSubmit={this.handleSubmit}>
+          <label htmlFor="firstName">First Name</label>
           <input
             onChange={this.handleChange}
             value={this.state.firstName}
             name="firstName"
             type="firstName"
             id="firstName"
-            placeholder="First Name" />
+            placeholder="First Name">
+          <label htmlFor="lastName">Last Name</label>
           <input
             onChange={this.handleChange}
             value={this.state.lastName}
@@ -89,6 +87,7 @@ class Register extends Component {
             type="lastName"
             id="lastName"
             placeholder="Last Name" />
+          <label htmlFor="userName">User Name</label>
           <input
             onChange={this.handleChange}
             value={this.state.username}
@@ -96,6 +95,7 @@ class Register extends Component {
             type="username"
             id="username"
             placeholder="Username" />
+          <label htmlFor="email">Email</label>
           <input
             onChange={this.handleChange}
             value={this.state.email}
@@ -103,6 +103,7 @@ class Register extends Component {
             type="email"
             id="email"
             placeholder="email" />
+          <label htmlFor="password">Password</label>
           <input
             onChange={this.handleChange}
             value={this.state.password}

@@ -6,44 +6,41 @@ import { withAuthContext } from '../contexts/AuthContext'
 
 class Login extends Component {
   constructor() {
-      super();
-      this.state = {
-          email: "",
-          password: "",
-          errorMessage: ""
-      }
+    super();
+    this.state = {
+      email: "",
+      password: "",
+      errorMessage: ""
+    }
   }
 
   handleChange = (e) => {
-      const { name, value } = e.target
-      this.setState({
-          [name]: value
-      })
+    const { name, value } = e.target
+    this.setState({
+      [name]: value
+    })
   }
 
   clearInputs = () => {
-      this.setState({
-          username: "",
-          password: "",
-          errorMessage: ""
-      })
+    this.setState({
+      username: "",
+      password: "",
+      errorMessage: ""
+    })
   }
 
   handleSubmit = (e) => {
-      e.preventDefault();
-      this.props.login(this.state)
-          .then(() => this.props.history.push("/"))
-          .catch(err => {
-              this.setState({errorMessage: err.response.data.message})
-          })
+    e.preventDefault();
+    this.props.login(this.state)
+      .then(() => this.props.history.push("/"))
+      .catch(err => {
+        this.setState({ errorMessage: err.response.data.message })
+      })
   }
-  
+
   render() {
-    const {isLeft} = this.props
+    const { isLeft } = this.props
     const boxStyle = {
-      box: {
-        transform: isLeft ? 'translateX(100%)' : 'translateX(0)'
-      },
       form: {
         transform: isLeft ? 'translateX(0)' : 'translateX(100%)',
         width: '50%',
@@ -62,17 +59,19 @@ class Login extends Component {
 
     return (
       <div className="loginPage">
-        <BoxSlider className="boxSlider loginContent" style={boxStyle}>
+        <BoxSlider className={isLeft ? 'boxSlider loginContentLeft' : 'boxSlider loginContentRight'}>
           <h1>Login</h1>
           <p>Login with email and password</p>
         </BoxSlider>
         <form style={boxStyle.form} onSubmit={this.handleSubmit}>
+          <label for="email">Email</label>
           <input
             onChange={this.handleChange}
             value={this.state.email}
             name="email"
             type="email"
             placeholder="email" />
+          <label for="password">Password</label>
           <input
             onChange={this.handleChange}
             value={this.state.password}

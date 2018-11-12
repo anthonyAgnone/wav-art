@@ -1,23 +1,22 @@
 import React from 'react'
-
-import './assets/css/landingPage.css'
+import styled from 'styled-components'
 
 import BoxSlider from '../utility/BoxSlider'
 import { withNavContext } from '../contexts/NavContext'
 
+const LandingContent = styled.div`
+  width: 100%;
+  height: 100%;
+`
+
 function LandingPage({ isLeft }) {
-  const boxStyle = {
-    box: {
-      transform: isLeft ? 'translateX(0)' : 'translateX(100%)'
-    }
-  }
   return (
-    <div className="landingPage">
-      <BoxSlider className={isLeft ? 'boxSlider lpContent isLeft' : 'boxSlider lpContent isRight'} style={boxStyle}>
+    <LandingContent className="landingPage">
+      <BoxSlider className="boxSlider lpContent" isLeft={isLeft}>
         <h1>Synthesize Sight and Sound</h1>
         <p>Create an artistic interpretation of anything from your child's first words to your favorite song.</p>
       </BoxSlider>
-    </div>
+    </LandingContent>
   )
 }
 

@@ -17,6 +17,5 @@ ReactDOM.render(
 			</Reboot>
 		</BrowserRouter>
 	</AuthContextProvider>,
-
-	document.getElementById('root')
-);
+  document.getElementById('root')
+)
