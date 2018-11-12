@@ -5,9 +5,6 @@ import { withNavContext } from '../contexts/NavContext'
 
 function Register({ isLeft }) {
   const boxStyle = {
-    box: {
-      transform: isLeft ? 'translateX(100%)' : 'translateX(0)'
-    },
     form: {
       transform: isLeft ? 'translateX(0)' : 'translateX(100%)',
       width: '50%',
@@ -25,9 +22,9 @@ function Register({ isLeft }) {
   }
   return (
     <div className="registerPage">
-      <BoxSlider className="boxSlider regContent" style={boxStyle}>
+      <BoxSlider className={isLeft ? 'boxSlider registerContentLeft' : 'boxSlider registerContentRight'}>
         <h1>Register</h1>
-        <p>Get started making amazing art from the sounds important to you</p>
+        <p>Get started making beautiful art from the sounds important to you.</p>
       </BoxSlider>
       <form style={boxStyle.form}>
         <label htmlFor="firstName">First Name</label>

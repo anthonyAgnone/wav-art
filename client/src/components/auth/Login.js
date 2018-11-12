@@ -5,9 +5,6 @@ import { withNavContext } from '../contexts/NavContext'
 
 function Login({ isLeft }) {
   const boxStyle = {
-    box: {
-      transform: isLeft ? 'translateX(100%)' : 'translateX(0)'
-    },
     form: {
       transform: isLeft ? 'translateX(0)' : 'translateX(100%)',
       width: '50%',
@@ -25,7 +22,7 @@ function Login({ isLeft }) {
   }
   return (
     <div className="loginPage">
-      <BoxSlider className="boxSlider loginContent" style={boxStyle}>
+      <BoxSlider className={isLeft ? 'boxSlider loginContentLeft' : 'boxSlider loginContentRight'}>
         <h1>Login</h1>
         <p>Login with email and password</p>
       </BoxSlider>
