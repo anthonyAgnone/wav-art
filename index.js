@@ -22,7 +22,6 @@ mongoose.connect("mongodb://localhost:27017/wave-art",
 );
 
 app.use("/auth", require("./routes/auth"));
-// app.use("/api/todo", require("./routes/todo"));
 
 app.use((err, req, res, next) => {
     console.error(err);
