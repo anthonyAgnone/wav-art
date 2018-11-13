@@ -39,7 +39,9 @@ class Register extends Component {
 		e.preventDefault();
 		this.props
 			.register(this.state)
-			.then(() => this.props.history.push('/dashboard'))
+			.then(() => {
+				setTimeout(this.props.history.push('/dashboard'), 1000);
+			})
 			.catch(err => {
 				this.setState({ errorMessage: err.response.data.message });
 			});
@@ -128,7 +130,7 @@ class Register extends Component {
 						style={{
 							color: 'red',
 							position: 'absolute',
-							bottom: '15vh',
+							bottom: '10vh',
 							left: '25%',
 							transform: 'translate(-50%, -50%)'
 						}}

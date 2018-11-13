@@ -33,7 +33,9 @@ class Login extends Component {
 		e.preventDefault();
 		this.props
 			.login(this.state)
-			.then(() => this.props.history.push('/dashboard'))
+			.then(() => {
+				setTimeout(() => this.props.history.push('/dashboard'), 4000);
+			})
 			.catch(err => {
 				this.setState({ errorMessage: err.response.data.message });
 			});
