@@ -33,7 +33,7 @@ class Login extends Component {
 		e.preventDefault();
 		this.props
 			.login(this.state)
-			.then(() => this.props.history.push('/'))
+			.then(() => this.props.history.push('/dashboard'))
 			.catch(err => {
 				this.setState({ errorMessage: err.response.data.message });
 			});
