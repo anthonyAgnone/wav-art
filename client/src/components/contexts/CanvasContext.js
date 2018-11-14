@@ -36,19 +36,31 @@ export default class CanvasContext extends Component {
             })
         });
     };
-
-    draw = () => {
+    interpretAudio = () => {
+        // does stuff with audio analyzer
+        const audioData = new Uint8Array(this.analyser.frequencyBinCount);
+        this.analyser.getByteFrequencyData(audioData);
+        return {
+            audioData,
+            // more properties
+        }
+    }
+    display = ({ audioData }) => {
         const canvas = this.canvas.current;
-        if (this.state.isPlaying) requestAnimationFrame(this.draw);
-        const freqByteData = new Uint8Array(this.analyser.frequencyBinCount);
-        this.analyser.getByteFrequencyData(freqByteData);
-        // ctx.clearRect(0, 0, canvas.width, canvas.height);
-
         this.ctx = canvas.getContext('2d');
-        this.ctx.fillStyle = `rgb(${freqByteData[0]},${freqByteData[1]},${freqByteData[2]})`;
-        this.ctx.fillRect(5, 10, freqByteData[0], 100)
-        // this.ctx.fillRect(0 + 300, canvas.currentheight - freqByteData[0] * 1.5, 10, canvas.height);
-        // this.ctx.strokeRect(0 + 300, canvas.height - freqByteData[0] * 1.5, 10, canvas.height);
+        this.ctx.fillStyle = `rgb(${audioData[10]},${audioData[2]},${audioData[5]})`;
+        this.ctx.fillRect(audioData[333], audioData[323], audioData[23]*.15, audioData[1]*.15)
+    }
+    draw = () => {
+        if (this.state.isPlaying) {
+            requestAnimationFrame(this.draw);
+            this.display(this.interpretAudio());
+        }
+        // call the audio processing function, whose job it is to convert sound data into a configuration which 'draw' can understand
+        // 
+
+
+     
     };
 
     getRandomColor = () => {
@@ -59,13 +71,20 @@ export default class CanvasContext extends Component {
     // handle fileupload
     handleFileUpload = e => {
         e.preventDefault();
-        // alert(URL.createObjectURL(this.uploader.current.file[0].name )
-        // alert(this.uploader.current.files[0])
         this.setState({ src: URL.createObjectURL(this.uploader.current.files[0]) }, this.setupWebAudio)
 
     }
     // process the file data
     // handle image save
+
+
+
+
+
+
+
+
+
     render() {
         const value = {
             canvas: this.canvas,
