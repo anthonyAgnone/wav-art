@@ -49,18 +49,23 @@ export default class CanvasContext extends Component {
         const canvas = this.canvas.current;
         this.ctx = canvas.getContext('2d');
         this.ctx.fillStyle = `rgb(${audioData[10]},${audioData[2]},${audioData[5]})`;
-        this.ctx.fillRect(audioData[333], audioData[323], audioData[23]*.15, audioData[1]*.15)
+        this.ctx.fillRect(audioData[1],audioData[1], audioData[0], audioData[0])
+        this.ctx.fillRect(10,10, 100, 100)
+
+        // this.ctx.fillRect(-.5 * audioData[1] + 50, .5 * audioData[1] + 50, audioData[0] * .15, audioData[0] * .15)
+        // this.ctx.fillRect(.5 * audioData[0] + 150, -.5 * audioData[0] + 100, audioData[343] * .15, audioData[44] * .15)
+        // this.ctx.fillRect(-.5 * audioData[0] + 150, -.5 * audioData[0] + 100, audioData[87] * .15, audioData[133] * .15)
+
+
+        // (canvas.width / 255) * 
+        // (canvas.height / 255) *
+
     }
     draw = () => {
         if (this.state.isPlaying) {
             requestAnimationFrame(this.draw);
             this.display(this.interpretAudio());
         }
-        // call the audio processing function, whose job it is to convert sound data into a configuration which 'draw' can understand
-        // 
-
-
-     
     };
 
     getRandomColor = () => {
