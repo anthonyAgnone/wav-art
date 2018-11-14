@@ -7,15 +7,15 @@ import App from './App';
 import { AuthContextProvider } from './components/contexts/AuthContext';
 
 ReactDOM.render(
-	
+
 	<AuthContextProvider>
 		<BrowserRouter>
 			<Reboot>
 				<NavContext>
-					<App />
+						<App />
 				</NavContext>
 			</Reboot>
 		</BrowserRouter>
 	</AuthContextProvider>,
-  document.getElementById('root')
+	document.getElementById('root')
 )
