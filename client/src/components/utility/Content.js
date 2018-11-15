@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import { TransitionGroup, CSSTransition } from 'react-transition-group'
 import { Switch, Route, withRouter } from 'react-router-dom'
+import Protectedroute from '../auth/Protectedroute'
 import { withNavContext } from '../contexts/NavContext'
 import { withAnimationContext } from '../contexts/AnimateContext'
 import LandingPage from '../landingPage/LandingPage'
 import DashBoard from '../dashBoard/DashBoard'
 import HowTo from '../howTo/HowTo'
-import PrintView from '../printView/PrintView'
 import Login from '../auth/Login'
 import Register from '../auth/Register'
 
@@ -145,8 +145,7 @@ class Content extends Component {
               <Route path="/how-to-use" component={HowTo} />
               <Route path="/login" component={Login} />
               <Route path="/register" component={Register} />
-              <Route path="/dashboard" component={DashBoard} />
-              <Route path="/preview" component={PrintView} />
+              <Protectedroute path="/dashboard" component={DashBoard} />
             </Switch>
           </CSSTransition>
         </TransitionGroup>
