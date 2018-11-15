@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { withNavContext } from '../contexts/NavContext';
 import TopNavigation from './TopNavigation';
-import SideNavigation from './SideNavigation';
 
 class Navigation extends Component {
 	constructor(props) {
@@ -13,8 +12,7 @@ class Navigation extends Component {
 	}
 
 	render() {
-		if (this.props.navState) return <SideNavigation />;
-		else return <TopNavigation />;
+		return <TopNavigation />;
 	}
 }
 

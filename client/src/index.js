@@ -5,17 +5,19 @@ import NavContext from './components/contexts/NavContext';
 import Reboot from './components/utility/Reboot';
 import App from './App';
 import { AuthContextProvider } from './components/contexts/AuthContext';
+import AnimateContext from './components/contexts/AnimateContext';
 
 ReactDOM.render(
-
 	<AuthContextProvider>
 		<BrowserRouter>
 			<Reboot>
-				<NavContext>
+				<AnimateContext>
+					<NavContext>
 						<App />
-				</NavContext>
+					</NavContext>
+				</AnimateContext>
 			</Reboot>
 		</BrowserRouter>
 	</AuthContextProvider>,
 	document.getElementById('root')
-)
+);
