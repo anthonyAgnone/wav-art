@@ -24,6 +24,10 @@ const userSchema = new Schema({
     lastName: {
         type: String,
         required: true
+    },
+    membership: {
+        type: Boolean,
+        default: false
     }
 });
 
