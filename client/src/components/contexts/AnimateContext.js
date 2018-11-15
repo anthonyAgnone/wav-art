@@ -1,43 +1,42 @@
-import React, { Component, createContext, createRef } from 'react';
-import { TimelineLite } from 'gsap';
+import React, { Component, createContext, createRef } from 'react'
+import { TimelineMax, Power1 } from 'gsap'
 
-const { Consumer, Provider } = createContext();
+const { Consumer, Provider } = createContext()
 
 export default class AnimationContext extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			toDashBoardAnimation: false
-		};
-		this.handleToDashboardAnimation = this.handleToDashboardAnimation.bind(this);
-		this.toDashboard = new TimelineLite({ paused: true });
-		this.navBar = createRef();
-		this.mainSection = createRef();
-	}
+  constructor(props) {
+    super(props)
+    this.state = {
+      toDashBoardAnimation: false
+    }
+    this.navBarAnimation = null
+    this.mainSectionAnimation = null
+    this.navBar = createRef()
+    this.mainSection = createRef()
+    this.animateToDashBoard = this.animateToDashBoard.bind(this)
+  }
 
-	handleToDashboardAnimation(control) {
-		this.setState({
-			toDashBoardAnimation: control
-		});
-	}
+  animateToDashBoard() {
+    this.navBarAnimation = new TimelineMax()
+    this.mainSectionAnimation = new TimelineMax()
+    this.navBarAnimation.to(this.navBar.current, 0.4, { y: -100, ease: Power1.easeInOut }, 'nav')
+    this.mainSectionAnimation.to(
+      this.mainSection.current,
+      1.3,
+      { css: { borderWidth: '2vw' }, delay: 0.2, ease: Power1.easeInOut },
+      'main'
+    )
+  }
 
-	animateToDashBoard() {}
-
-	componentDidMount() {
-		this.navBar.current.style.background = 'yellow';
-	}
-
-	render() {
-		const value = {
-			handleToDashboardAnimation: this.handleToDashboardAnimation,
-			navBar: this.navBar,
-			mainSection: this.mainSection,
-			...this.state
-		};
-		return <Provider value={value}>{this.props.children}</Provider>;
-	}
+  render() {
+    const value = {
+      animateToDashBoard: this.animateToDashBoard,
+      navBar: this.navBar,
+      mainSection: this.mainSection,
+      ...this.state
+    }
+    return <Provider value={value}>{this.props.children}</Provider>
+  }
 }
 
-export const withAnimationContext = C => props => (
-	<Consumer>{value => <C {...value} {...props} />}</Consumer>
-);
+export const withAnimationContext = C => props => <Consumer>{value => <C {...value} {...props} />}</Consumer>

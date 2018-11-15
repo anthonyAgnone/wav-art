@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { TransitionGroup, CSSTransition } from 'react-transition-group'
 import { Switch, Route, withRouter } from 'react-router-dom'
 import { withNavContext } from '../contexts/NavContext'
+import { withAnimationContext } from '../contexts/AnimateContext'
 import LandingPage from '../landingPage/LandingPage'
 import DashBoard from '../dashBoard/DashBoard'
 import HowTo from '../howTo/HowTo'
@@ -128,7 +129,7 @@ class Content extends Component {
   render() {
     const Container = this.Container
     return (
-      <Container className="content">
+      <Container className="content" ref={this.props.mainSection}>
         <TransitionGroup component={null}>
           <CSSTransition
             in={true}
@@ -153,4 +154,4 @@ class Content extends Component {
     )
   }
 }
-export default withRouter(withNavContext(Content))
+export default withRouter(withAnimationContext(withNavContext(Content)))

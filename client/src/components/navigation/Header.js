@@ -3,10 +3,11 @@ import Navigation from './Navigation';
 import { Link } from 'react-router-dom';
 
 import './assets/css/header.css';
+import { withAnimationContext } from '../contexts/AnimateContext';
 
-export default function Header() {
+function Header({navBar}) {
 	return (
-		<div className="header">
+		<div className="header" ref={navBar}>
 			<form>
 				<input type="text" />
 				<button>Search</button>
@@ -23,3 +24,5 @@ export default function Header() {
 		</div>
 	);
 }
+
+export default withAnimationContext(Header)
