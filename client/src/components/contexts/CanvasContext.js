@@ -75,7 +75,8 @@ export default class CanvasContext extends Component {
         return {
             audioData,
             average,
-            stdv
+            stdv,
+            max
             // more properties
         }
     }
@@ -106,7 +107,7 @@ export default class CanvasContext extends Component {
         return (data - Math.floor(data))
     }
 
-    display = ({ audioData, stdv, average }) => {
+    display = ({ audioData, stdv, average, max }) => {
         const canvas = this.canvas.current;
         this.ctx = this.canvas.current.getContext('2d');
 
@@ -201,9 +202,10 @@ export default class CanvasContext extends Component {
 
 
         // square //
-        console.log('stdv: '+stdv)
-        console.log('average:' + average)
-        if (stdv > 13) {
+        console.log('max: '+ max)
+        
+        
+        if (stdv > 11 && max > 246) {
 
 
             const fakeRandom = this.decimal(this.standardDeviation(audioData));
@@ -254,6 +256,8 @@ export default class CanvasContext extends Component {
     // handle fileupload
     handleFileUpload = e => {
         e.preventDefault();
+        this.ctx = this.canvas.current.getContext('2d');
+        this.ctx.clearRect(0,0,this.canvas.width, this.canvas.height)
         this.setState({ src: URL.createObjectURL(this.uploader.current.files[0]) }, this.setupWebAudio)
 
     }

@@ -15,6 +15,7 @@ const SideNav = styled.div`
   transition: all 0.3s ease;
   display: flex;
   color: #f8f7f2;
+  z-index: 3000;
   & .sideNavContent {
     display: flex;
     flex-direction: column;
