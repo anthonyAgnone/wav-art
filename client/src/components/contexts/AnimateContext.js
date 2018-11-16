@@ -10,10 +10,12 @@ export default class AnimationContext extends Component {
       toDashBoardAnimation: false
     }
     this.navBarAnimation = null
+    this.logOutAnimatin = null
     this.mainSectionAnimation = null
     this.navBar = createRef()
     this.mainSection = createRef()
     this.animateToDashBoard = this.animateToDashBoard.bind(this)
+    this.animateLogOut = this.animateLogOut.bind(this)
   }
 
   animateToDashBoard() {
@@ -28,9 +30,17 @@ export default class AnimationContext extends Component {
     )
   }
 
+  animateLogOut() {
+    this.logOutAnimation = new TimelineMax()
+    this.logOutAnimation
+      .to(this.navBar.current, 0.4, { y: 0, ease: Power1.easeInOut }, 'nav')
+      .to(this.mainSection.current, 1.3, { css: { borderWidth: '5vw' }, delay: 0.2, ease: Power1.easeInOut }, 'main')
+  }
+
   render() {
     const value = {
       animateToDashBoard: this.animateToDashBoard,
+      animateLogOut: this.animateLogOut,
       navBar: this.navBar,
       mainSection: this.mainSection,
       ...this.state

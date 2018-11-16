@@ -4,6 +4,7 @@ import { Switch, Route, withRouter } from 'react-router-dom'
 import Protectedroute from '../auth/Protectedroute'
 import { withNavContext } from '../contexts/NavContext'
 import { withAnimationContext } from '../contexts/AnimateContext'
+import { withAuthContext } from '../contexts/AuthContext'
 import LandingPage from '../landingPage/LandingPage'
 import DashBoard from '../dashBoard/DashBoard'
 import HowTo from '../howTo/HowTo'
@@ -19,7 +20,8 @@ class Content extends Component {
     box-sizing: border-box;
     width: 100vw;
     height: 100vh;
-    border: 5vw solid #252525;
+    border-color: #252525;
+    border-style: solid;
     position: absolute;
     left: 50%;
     top: 50%;
@@ -125,11 +127,14 @@ class Content extends Component {
       transform: translate(0, 0);
     }
   `
+  componentDidMount = () => {
+    this.props.animateLogOut()
+  }
 
   render() {
     const Container = this.Container
     return (
-      <Container className="content" ref={this.props.mainSection}>
+      <Container isLoggedIn={this.props.token} className="content" ref={this.props.mainSection}>
         <TransitionGroup component={null}>
           <CSSTransition
             in={true}
@@ -153,4 +158,4 @@ class Content extends Component {
     )
   }
 }
-export default withRouter(withAnimationContext(withNavContext(Content)))
+export default withRouter(withAuthContext(withAnimationContext(withNavContext(Content))))
