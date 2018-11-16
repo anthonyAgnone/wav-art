@@ -1,4 +1,4 @@
-import React, { Component, createContext, createRef } from 'react'
+import React, { Component, createContext } from 'react'
 import { withRouter } from 'react-router-dom'
 
 const { Consumer, Provider } = createContext()

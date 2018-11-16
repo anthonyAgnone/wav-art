@@ -44,11 +44,8 @@ export class AuthContextProvider extends Component {
   }
 
   addArt = newArt => {
-    return wavArtAxios.post('/api/art/', newArt).then(response => {
-      this.setState(prevState => {
-        return { art: [...prevState.art, response.data] }
-      })
-      return response
+    axios.post('/api/art', newArt).then(response => {
+      console.log(response, 'new art')
     })
   }
 

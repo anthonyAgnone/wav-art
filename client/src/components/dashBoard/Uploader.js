@@ -3,7 +3,6 @@ import { withCanvasContext } from '../contexts/CanvasContext'
 import styled from 'styled-components'
 
 const Upload = styled.input`
-  
   & label {
     font-size: 1.25em;
     font-weight: 700;
@@ -18,7 +17,7 @@ class Uploader extends Component {
     return (
       <form>
         <Upload name="file" onChange={this.props.handleFileUpload} type="file" ref={this.props.uploader} />
-        <label for="file">Choose a file</label>
+        <label htmlFor="file">Choose a file</label>
       </form>
     )
   }

@@ -69,9 +69,9 @@ class Login extends Component {
           <p>Login with email and password</p>
         </BoxSlider>
         <form style={boxStyle.form} onSubmit={this.handleSubmit}>
-          <label for="email">Email</label>
+          <label htmlFor="email">Email</label>
           <input onChange={this.handleChange} value={this.state.email} name="email" type="email" placeholder="email" />
-          <label for="password">Password</label>
+          <label htmlFor="password">Password</label>
           <input
             onChange={this.handleChange}
             value={this.state.password}

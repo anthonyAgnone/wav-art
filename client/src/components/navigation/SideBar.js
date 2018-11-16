@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { withAuthContext } from '../contexts/AuthContext'
 import { withAnimationContext } from '../contexts/AnimateContext'
 import { withNavContext } from '../contexts/NavContext'
+import { withCanvasContext } from '../contexts/CanvasContext'
 import Uploader from '../dashBoard/Uploader'
 import styled from 'styled-components'
 
@@ -47,7 +48,7 @@ class SideBar extends Component {
 
     this.state = {
       projectName: '',
-      fileName: ''
+      image: null
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -61,9 +62,18 @@ class SideBar extends Component {
     })
   }
 
-  handleSubmit = () => {
-    console.log(...this.state)
+  handleSubmit = e => {
+    e.preventDefault()
+    const dataURL = this.props.canvas.current.toDataURL()
+    this.setState(
+      {
+        fileName: dataURL
+      },
+      this.props.addArt(...this.state)
+    )
   }
+
+  handleSave = canvas => {}
 
   handleLogOut = () => {
     this.props.handleDisplaySide()
@@ -91,9 +101,9 @@ class SideBar extends Component {
               onChange={this.handleChange}
               placeholder="Project Name"
             />
+            <button>Save</button>
           </form>
           <Uploader />
-          <button>Save</button>
         </div>
         <button onClick={() => this.props.handleDisplaySide()}>{this.props.displaySide ? 'x' : '-'}</button>
       </SideNav>
@@ -101,4 +111,4 @@ class SideBar extends Component {
   }
 }
 
-export default withAuthContext(withAnimationContext(withNavContext(SideBar)))
+export default withCanvasContext(withAuthContext(withAnimationContext(withNavContext(SideBar))))
