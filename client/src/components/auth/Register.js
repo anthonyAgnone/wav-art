@@ -74,7 +74,7 @@ class Register extends Component {
         </BoxSlider>
 
         <form style={boxStyle.form} onSubmit={this.handleSubmit}>
-          <label htmlFor="firstName">First Name</label>
+          <label htmlhtmlFor="firstName">First Name</label>
           <input
             onChange={this.handleChange}
             value={this.state.firstName}
@@ -83,7 +83,7 @@ class Register extends Component {
             id="firstName"
             placeholder="First Name"
           />
-          <label htmlFor="lastName">Last Name</label>
+          <label htmlhtmlFor="lastName">Last Name</label>
           <input
             onChange={this.handleChange}
             value={this.state.lastName}
@@ -92,7 +92,7 @@ class Register extends Component {
             id="lastName"
             placeholder="Last Name"
           />
-          <label htmlFor="userName">User Name</label>
+          <label htmlhtmlFor="userName">User Name</label>
           <input
             onChange={this.handleChange}
             value={this.state.username}
@@ -101,7 +101,7 @@ class Register extends Component {
             id="username"
             placeholder="Username"
           />
-          <label htmlFor="email">Email</label>
+          <label htmlhtmlFor="email">Email</label>
           <input
             onChange={this.handleChange}
             value={this.state.email}
@@ -110,7 +110,7 @@ class Register extends Component {
             id="email"
             placeholder="email"
           />
-          <label htmlFor="password">Password</label>
+          <label htmlhtmlFor="password">Password</label>
           <input
             onChange={this.handleChange}
             value={this.state.password}
