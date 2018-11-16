@@ -3,8 +3,6 @@ import { withCanvasContext } from '../contexts/CanvasContext';
 import styled from 'styled-components';
 
 const CanvasElement = styled.canvas`
-    width: 700px;
-    height: 700px;
     position: absolute;
     left: 50%;
     top: 50%;
