@@ -128,7 +128,11 @@ class Content extends Component {
     }
   `
   componentDidMount = () => {
-    this.props.animateLogOut()
+    if(!this.props.token) {
+      this.props.animateLogOut()
+    } else {
+      this.props.animateToDashBoard()
+    }
   }
 
   render() {

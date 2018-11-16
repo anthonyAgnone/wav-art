@@ -3,12 +3,7 @@ import { withCanvasContext } from '../contexts/CanvasContext'
 import styled from 'styled-components'
 
 const Upload = styled.input`
-  width: 0.1px;
-  height: 0.1px;
-  opacity: 0;
-  overflow: hidden;
-  position: absolute;
-  z-index: -1;
+  
   & label {
     font-size: 1.25em;
     font-weight: 700;
