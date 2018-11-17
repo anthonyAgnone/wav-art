@@ -81,7 +81,7 @@ export default class CanvasContext extends Component {
   }
   standardDeviation = values => {
     var avg = this.average(values)
-    var squareDiffs = values.map(function(value) {
+    var squareDiffs = values.map(function (value) {
       var diff = value - avg
       var sqrDiff = diff * diff
       return sqrDiff
@@ -94,7 +94,7 @@ export default class CanvasContext extends Component {
   }
 
   average = data => {
-    var sum = data.reduce(function(sum, value) {
+    var sum = data.reduce(function (sum, value) {
       return sum + value
     }, 0)
 
@@ -124,7 +124,7 @@ export default class CanvasContext extends Component {
       this.color = color
       this.ctx = ctx
 
-      this.draw = function() {
+      this.draw = function () {
         this.ctx.beginPath()
         this.ctx.moveTo(this.x1, this.y1)
         this.ctx.lineTo(this.x2, this.y2)
@@ -132,7 +132,7 @@ export default class CanvasContext extends Component {
         this.ctx.stroke()
       }
 
-      this.update = function({ audioData }) {
+      this.update = function ({ audioData }) {
         let rgb1 = audioData[9]
         let rgb2 = audioData[19]
         let rgb3 = audioData[39]
@@ -161,7 +161,9 @@ export default class CanvasContext extends Component {
       }
     }
 
-    if (audioData[40] > 200 && this.lineArray.length < 3) {
+    //lines
+
+    if (audioData[40] > 200) {
       let x1 = canvas.width * 0.5
       let y1 = canvas.height * 0.5
       let x2 = canvas.width * 0.5
@@ -179,6 +181,9 @@ export default class CanvasContext extends Component {
 
       this.lineArray.push(new Line(x1, y1, x2, y2, dx1, dy1, dx2, dy2, color, this.ctx))
     }
+
+    if (this.lineArray.length > 3) this.lineArray.shift()
+
 
     // square //
 
