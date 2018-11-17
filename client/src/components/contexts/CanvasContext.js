@@ -164,10 +164,10 @@ export default class CanvasContext extends Component {
     //lines
 
     if (audioData[40] > 200) {
-      let x1 = canvas.width * 0.5
-      let y1 = canvas.height * 0.5
-      let x2 = canvas.width * 0.5
-      let y2 = canvas.height * 0.5
+      let x1 = (stdv * 2.09 - Math.floor(stdv * 2.09)) * canvas.width
+      let y1 = (stdv * 3.046739 - Math.floor(stdv * 3.046739)) * canvas.height
+      let x2 = (stdv * 8.0953779 - Math.floor(stdv * 8.0953779)) * canvas.width
+      let y2 = (stdv * 1.0943789 - Math.floor(stdv * 1.0943789)) * canvas.height
 
       let dx1 = (stdv * Math.PI - Math.floor(stdv * Math.PI) - 0.5) * stdv * 10
 
