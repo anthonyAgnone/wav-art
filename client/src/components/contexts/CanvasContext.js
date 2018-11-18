@@ -189,7 +189,7 @@ export default class CanvasContext extends Component {
 
     if (stdv > 11 && max > 246) {
       const fakeRandom = this.decimal(this.standardDeviation(audioData))
-      this.ctx.fillStyle = `rgba(${audioData[19]},${audioData[29]},${audioData[9]}, .2)`
+      this.ctx.fillStyle = `rgba(${audioData[19]},${audioData[29]},${audioData[9]}, .6)`
       this.ctx.fillRect(
         canvas.width * (stdv * Math.PI - Math.floor(stdv * Math.PI)),
         canvas.height * fakeRandom,
