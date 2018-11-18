@@ -132,7 +132,7 @@ export default class CanvasContext extends Component {
         this.ctx.stroke()
       }
 
-      this.update = function ({ audioData }) {
+      this.update = function ({ audioData, stdv }) {
         let rgb1 = audioData[9]
         let rgb2 = audioData[19]
         let rgb3 = audioData[39]
@@ -151,10 +151,10 @@ export default class CanvasContext extends Component {
           this.dy2 = -this.dy2
         }
 
-        this.x1 += this.dx1
-        this.x2 += this.dx2
-        this.y1 += this.dy1
-        this.y2 += this.dy2
+        this.x1 += (this.dx1 * (stdv/10))
+        this.x2 += (this.dx2 * (stdv/10))
+        this.y1 += (this.dy1 * (stdv/10))
+        this.y2 += (this.dy2 * (stdv/10))
 
         this.draw()
         this.ctx.beginPath()
