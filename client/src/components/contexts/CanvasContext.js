@@ -81,7 +81,7 @@ export default class CanvasContext extends Component {
   }
   standardDeviation = values => {
     var avg = this.average(values)
-    var squareDiffs = values.map(function(value) {
+    var squareDiffs = values.map(function (value) {
       var diff = value - avg
       var sqrDiff = diff * diff
       return sqrDiff
@@ -94,7 +94,7 @@ export default class CanvasContext extends Component {
   }
 
   average = data => {
-    var sum = data.reduce(function(sum, value) {
+    var sum = data.reduce(function (sum, value) {
       return sum + value
     }, 0)
 
@@ -124,7 +124,7 @@ export default class CanvasContext extends Component {
       this.color = color
       this.ctx = ctx
 
-      this.draw = function() {
+      this.draw = function () {
         this.ctx.beginPath()
         this.ctx.moveTo(this.x1, this.y1)
         this.ctx.lineTo(this.x2, this.y2)
@@ -132,7 +132,7 @@ export default class CanvasContext extends Component {
         this.ctx.stroke()
       }
 
-      this.update = function({ audioData }) {
+      this.update = function ({ audioData, stdv }) {
         let rgb1 = audioData[9]
         let rgb2 = audioData[19]
         let rgb3 = audioData[39]
@@ -151,21 +151,23 @@ export default class CanvasContext extends Component {
           this.dy2 = -this.dy2
         }
 
-        this.x1 += this.dx1
-        this.x2 += this.dx2
-        this.y1 += this.dy1
-        this.y2 += this.dy2
+        this.x1 += (this.dx1 * (stdv/10))
+        this.x2 += (this.dx2 * (stdv/10))
+        this.y1 += (this.dy1 * (stdv/10))
+        this.y2 += (this.dy2 * (stdv/10))
 
         this.draw()
         this.ctx.beginPath()
       }
     }
 
-    if (audioData[40] > 200 && this.lineArray.length < 3) {
-      let x1 = canvas.width * 0.5
-      let y1 = canvas.height * 0.5
-      let x2 = canvas.width * 0.5
-      let y2 = canvas.height * 0.5
+    //lines
+
+    if (audioData[40] > 200) {
+      let x1 = (stdv * 2.09 - Math.floor(stdv * 2.09)) * canvas.width
+      let y1 = (stdv * 3.046739 - Math.floor(stdv * 3.046739)) * canvas.height
+      let x2 = (stdv * 8.0953779 - Math.floor(stdv * 8.0953779)) * canvas.width
+      let y2 = (stdv * 1.0943789 - Math.floor(stdv * 1.0943789)) * canvas.height
 
       let dx1 = (stdv * Math.PI - Math.floor(stdv * Math.PI) - 0.5) * stdv * 10
 
@@ -180,11 +182,14 @@ export default class CanvasContext extends Component {
       this.lineArray.push(new Line(x1, y1, x2, y2, dx1, dy1, dx2, dy2, color, this.ctx))
     }
 
+    if (this.lineArray.length > 3) this.lineArray.shift()
+
+
     // square //
 
     if (stdv > 11 && max > 246) {
       const fakeRandom = this.decimal(this.standardDeviation(audioData))
-      this.ctx.fillStyle = `rgba(${audioData[19]},${audioData[29]},${audioData[9]}, .2)`
+      this.ctx.fillStyle = `rgba(${audioData[19]},${audioData[29]},${audioData[9]}, .6)`
       this.ctx.fillRect(
         canvas.width * (stdv * Math.PI - Math.floor(stdv * Math.PI)),
         canvas.height * fakeRandom,
